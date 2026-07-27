@@ -1,0 +1,32 @@
+name: Deployment Test
+
+on:
+  push:
+    branch:
+    - main
+
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  test:
+    run-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: action/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+
+    - name: Install Dependencies
+      run: uv sync
+
+    - name: Run Test
+      run: uv run pytest

@@ -1,0 +1,11 @@
+[project]
+name = "github-action-learning"
+version = "0.1.0"
+description = "learing github action (ci/cd) flow"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pytest>=9.1.1",
+]
+[tool.pytest.ini_options]
+pythonpath=["."]
